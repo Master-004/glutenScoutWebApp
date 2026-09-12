@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlutenScout</title>
+    <meta
+      name="description"
+      content="GlutenScout helps people find restaurants verified safe for a full gluten-free meal."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Lora:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="brand-icon">GS</div>
+          <div>
+            <p class="eyebrow">Field Guide</p>
+            <h1>GlutenScout</h1>
+          </div>
+        </div>
+        <button class="ghost-button" id="nav-home">Search</button>
+      </header>
+
+      <main>
+        <section id="screen-search" class="screen active" aria-label="Nearby results">
+          <div class="hero-card">
+            <p class="kicker">Verified nearby</p>
+            <h2>Find a place where you can eat without the gamble.</h2>
+            <div class="search-row">
+              <span class="search-flag">Downtown</span>
+              <span class="search-flag muted">Open now</span>
+              <button class="primary-button">Update location</button>
+            </div>
+          </div>
+
+          <div class="filter-bar">
+            <span>Sorted by verification strength</span>
+            <span class="meta-label">Safe for full meal</span>
+          </div>
+
+          <div id="search-results" class="results-list"></div>
+        </section>
+
+        <section id="screen-detail" class="screen" aria-label="Restaurant detail">
+          <div id="detail-view"></div>
+        </section>
+
+        <section id="screen-picks" class="screen" aria-label="Safe picks">
+          <div id="picks-view"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
