@@ -119,20 +119,28 @@ const restaurantData = [
 ];
 
 const state = {
-  screen: "search",
+  screen: "landing",
   activeRestaurantId: restaurantData[0].id
 };
 
+const navHome = document.getElementById("nav-home");
+const navSearch = document.getElementById("nav-search");
 const searchResults = document.getElementById("search-results");
 const detailView = document.getElementById("detail-view");
 const picksView = document.getElementById("picks-view");
-const navHome = document.getElementById("nav-home");
 
 function getActiveRestaurant() {
   return restaurantData.find((restaurant) => restaurant.id === state.activeRestaurantId) || restaurantData[0];
 }
 
+function updateTopActions() {
+  if (navHome) navHome.classList.toggle("is-muted", state.screen === "landing");
+  if (navSearch) navSearch.classList.toggle("is-muted", state.screen === "search");
+}
+
 function renderSearchResults() {
+  if (!searchResults) return;
+
   searchResults.innerHTML = restaurantData
     .map(
       (restaurant) => `
@@ -154,7 +162,7 @@ function renderSearchResults() {
           <div class="result-stats">
             <div class="stat-box">
               <span class="stat-value">${restaurant.totalEntrees}</span>
-              <span class="stat-label">Full safe entrees</span>
+              <span class="stat-label">Safe dishes</span>
             </div>
             <div class="stat-box">
               <span class="stat-value">${restaurant.lastVerified}</span>
@@ -180,6 +188,8 @@ function renderSearchResults() {
 }
 
 function renderDetailScreen() {
+  if (!detailView) return;
+
   const restaurant = getActiveRestaurant();
 
   detailView.innerHTML = `
@@ -244,18 +254,27 @@ function renderDetailScreen() {
     </div>
   `;
 
-  detailView.querySelector('[data-action="show-picks"]').addEventListener("click", () => {
-    state.screen = "picks";
-    renderScreens();
-  });
+  const picksButton = detailView.querySelector('[data-action="show-picks"]');
+  const searchButton = detailView.querySelector('[data-action="show-search"]');
 
-  detailView.querySelector('[data-action="show-search"]').addEventListener("click", () => {
-    state.screen = "search";
-    renderScreens();
-  });
+  if (picksButton) {
+    picksButton.addEventListener("click", () => {
+      state.screen = "picks";
+      renderScreens();
+    });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener("click", () => {
+      state.screen = "search";
+      renderScreens();
+    });
+  }
 }
 
 function renderPicksScreen() {
+  if (!picksView) return;
+
   const restaurant = getActiveRestaurant();
 
   picksView.innerHTML = `
@@ -290,34 +309,70 @@ function renderPicksScreen() {
     </div>
   `;
 
-  picksView.querySelector('[data-action="show-detail"]').addEventListener("click", () => {
-    state.screen = "detail";
-    renderScreens();
-  });
+  const detailButton = picksView.querySelector('[data-action="show-detail"]');
+  const searchButton = picksView.querySelector('[data-action="show-search"]');
 
-  picksView.querySelector('[data-action="show-search"]').addEventListener("click", () => {
-    state.screen = "search";
-    renderScreens();
-  });
+  if (detailButton) {
+    detailButton.addEventListener("click", () => {
+      state.screen = "detail";
+      renderScreens();
+    });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener("click", () => {
+      state.screen = "search";
+      renderScreens();
+    });
+  }
 }
 
 function renderScreens() {
-  const screenSearch = document.getElementById("screen-search");
-  const screenDetail = document.getElementById("screen-detail");
-  const screenPicks = document.getElementById("screen-picks");
+  const landingScreen = document.getElementById("screen-landing");
+  const searchScreen = document.getElementById("screen-search");
+  const detailScreen = document.getElementById("screen-detail");
+  const picksScreen = document.getElementById("screen-picks");
 
-  screenSearch.classList.toggle("active", state.screen === "search");
-  screenDetail.classList.toggle("active", state.screen === "detail");
-  screenPicks.classList.toggle("active", state.screen === "picks");
+  if (landingScreen) landingScreen.classList.toggle("active", state.screen === "landing");
+  if (searchScreen) searchScreen.classList.toggle("active", state.screen === "search");
+  if (detailScreen) detailScreen.classList.toggle("active", state.screen === "detail");
+  if (picksScreen) picksScreen.classList.toggle("active", state.screen === "picks");
 
   renderSearchResults();
   renderDetailScreen();
   renderPicksScreen();
+  updateTopActions();
 }
 
-navHome.addEventListener("click", () => {
-  state.screen = "search";
-  renderScreens();
+document.body.addEventListener("click", (event) => {
+  const actionTarget = event.target.closest("[data-action]");
+  if (!actionTarget) return;
+
+  const action = actionTarget.dataset.action;
+
+  if (action === "go-search") {
+    state.screen = "search";
+    renderScreens();
+  }
+
+  if (action === "go-landing") {
+    state.screen = "landing";
+    renderScreens();
+  }
 });
+
+if (navHome) {
+  navHome.addEventListener("click", () => {
+    state.screen = "landing";
+    renderScreens();
+  });
+}
+
+if (navSearch) {
+  navSearch.addEventListener("click", () => {
+    state.screen = "search";
+    renderScreens();
+  });
+}
 
 renderScreens();

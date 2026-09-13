@@ -26,24 +26,69 @@
             <h1>GlutenScout</h1>
           </div>
         </div>
-        <button class="ghost-button" id="nav-home">Search</button>
+        <div class="top-actions">
+          <button class="ghost-button" id="nav-search">Search</button>
+          <button class="ghost-button is-muted" id="nav-home">Home</button>
+        </div>
       </header>
 
       <main>
-        <section id="screen-search" class="screen active" aria-label="Nearby results">
-          <div class="hero-card">
-            <p class="kicker">Verified nearby</p>
-            <h2>Find a place where you can eat without the gamble.</h2>
-            <div class="search-row">
-              <span class="search-flag">Downtown</span>
-              <span class="search-flag muted">Open now</span>
-              <button class="primary-button">Update location</button>
+        <section id="screen-landing" class="screen active" aria-label="Landing page">
+          <div class="landing-hero">
+            <p class="kicker">Confidence before you commit</p>
+            <h2>Eat out without the gamble.</h2>
+            <p class="landing-text">
+              Find restaurants verified safe for a full gluten-free meal — not just a menu with a few “GF” options.
+            </p>
+
+            <div class="proof-row">
+              <span class="stamp large">Verified GF-Safe</span>
             </div>
+
+        
+          </div>
+
+          <div class="feature-panel">
+            <div class="feature-head">
+              <span class="section-label">How it works</span>
+            </div>
+            <div class="feature-list">
+              <div class="feature-item">
+                <h3>Verified dishes</h3>
+                <p>See which entrees are actually safe to order.</p>
+              </div>
+              <div class="feature-item">
+                <h3>Cross-contact notes</h3>
+                <p>Know about shared fryers, prep areas, and kitchen handling.</p>
+              </div>
+              <div class="feature-item">
+                <h3>Confidence to order</h3>
+                <p>Leave with a specific recommendation, not a spreadsheet.</p>
+              </div>
+            </div>
+          </div>
+
+          <button class="primary-button full-width" data-action="go-search">Find safe spots nearby</button>
+        </section>
+
+        <section id="screen-search" class="screen" aria-label="Nearby results">
+          <div class="screen-header">
+            <div>
+              <p class="section-label compact">Nearby results</p>
+              <h2>Safe places near you</h2>
+            </div>
+
+          </div>
+
+          <div class="search-tools">
+            <span class="search-flag">Downtown</span>
+            <span class="search-flag muted">Open now</span>
+            <button class="primary-button small">Update</button>
           </div>
 
           <div class="filter-bar">
             <span>Sorted by verification strength</span>
-            <span class="meta-label">Safe for full meal</span>
+            <span class="meta-label">Full meal safe</span>
           </div>
 
           <div id="search-results" class="results-list"></div>
