@@ -27,59 +27,61 @@ Live prototype: https://gluten-scout-web-app.vercel.app/
 
 ### Questions and predictions
 
-1. Does the landing screen signal the primary capability and fundamental value at first glance, before reading?
-   - Prediction: The user should immediately understand that the app helps them identify safe places to eat without uncertainty.
+1. Need: “When you and your partner were trying to figure out if a restaurant would actually work, what happened when you looked for that information?”
+   - Prediction: The person will describe checking a menu, calling ahead, or looking through confusing restaurant information, and they will say the uncertainty stayed with them until they were already at the table.
 
-2. Does the design reduce the problem of a confusing mobile allergen table into one clear verdict?
-   - Prediction: The user should understand what is safe, how it was verified, and what the risk level is without reading a dense table.
+2. Value: “If you never had to wonder whether a restaurant would actually work for your partner, what feeling would that give you?”
+   - Prediction: The user will describe relief, peace of mind, or confidence rather than simply convenience or speed.
 
-3. Does the app help the user move from “information” to “action” in a single step?
-   - Prediction: The “safe picks” screen should convert a verified restaurant into a confident order recommendation.
+3. Persona: “How often do you end up checking restaurants on your phone before deciding where to go?”
+   - Prediction: The user will say this happens often, and they are mentally checking whether the restaurant can safely accommodate their partner before they commit.
 
-4. Can the user always return to the landing / search flow?
-   - Prediction: Navigation should feel obvious and consistent across all screens so the user never feels lost or trapped in a detail view.
+4. Capability: “When you first see this landing screen, what do you think the app is for?”
+   - Prediction: The user should say something like “finding safe gluten-free restaurants” or “a place that is verified safe,” without needing the app to explain itself.
 
 ## 4) Design justification and first read
+
+Affordance statement: GlutenScout affords a quick, trusted decision about where to eat with a gluten-free partner by making verified safety visible before the user has to dig through restaurant details.
 
 ### First read of the live prototype
 
 - Does the landing screen signal the primary capability and fundamental value at first glance, before reading?
-  - Yes. The revised landing page is value-first and gives the app a clear purpose before the user reads detail.
+  - Yes. The revised landing screen gives the core value — certainty — and the core capability — verified safe restaurants — immediate visual weight before the user reads supporting text.
 
 - Does every element on the landing screen earn its place, or does anything compete with the primary job?
-  - The revised version reduces competing actions and keeps the primary job visible: safe restaurant discovery and certainty.
+  - The revised landing screen improves hierarchy by reducing competing actions and keeping the primary signal dominant. The app does not ask the user to parse a generic browse layout before seeing the value proposition.
 
 - What information and actions belong together on each screen, and which Gestalt grouping principle communicates that?
-  - Screen 1 uses proximity and similarity to group the value proposition, the trust mark, and the next action together.
-  - Screen 2 groups verification-related information into one verdict cluster so users can scan the key points instead of reading a dense table.
-  - Screen 3 groups recommendations around each dish so the user sees a clear “order this” pattern instead of raw data.
+  - Screen 1 uses proximity and similarity to group the main promise, the verified-safe signal, and the primary action together.
+  - Screen 2 uses grouping and common region to keep verification details together so the user reads one verdict instead of a scattered list of data points.
+  - Screen 3 uses grouping and sequence to turn safe dishes into a clear recommendation path: “order this,” “why,” and “what to avoid” stay in the same action cluster.
 
 - Do screens 2 and 3 stay on mission, and can you return to the landing screen from everywhere?
-  - Yes. Screen 2 remains focused on verification and readability; Screen 3 stays focused on confident ordering. The app also keeps a clear path back to the landing/search flow.
+  - Yes. The detail screen stays focused on readabilty and verification rather than decoration, and the picks screen stays focused on a concrete decision. The app also keeps a consistent back-to-home pattern so the user can return to the landing/search flow from every step.
 
 - What did the AI initially get wrong, skip, or oversimplify, and what did you change?
-  - The initial prototype had a few problems that were easy to miss in a first pass: it felt like a generic restaurant search app, the navigation was unclear, and there was no dominant landing value statement. The app did not clearly signal the primary capability before the user had to read through several cards.
-  - The biggest improvement was not in the concept itself; it was in hierarchy and flow. I added a dedicated landing screen, reduced visual clutter, and simplified the navigation so the app establishes the core value before showing results.
-  - I also corrected the product story around the actual pain point: the problem is not that people are “squinting at a PDF,” but that the allergen information is presented in a confusing table that does not read well on phones.
+  - The first pass created a more generic restaurant search feel instead of a value-first decision tool. The landing screen did not establish the primary signal fast enough, the navigation was unclear, and the layout had too many competing elements.
+  - I changed the hierarchy so the value proposition is first, reduced competing actions, and made the search flow feel like one product instead of a collection of loosely related screens.
+  - I also corrected the actual pain point: the problem is not simply “looking at a PDF,” but that allergen information is too dense and confusing on phones, so it needs to be reorganized into a scannable verdict.
 
 - Which design question or grouping/signaling decision motivated each important change?
   - The strongest design question was: “Does the landing screen signal the primary capability and fundamental value at first glance?”
-  - That drove the landing-page redesign, clearer hierarchy, and the decision to reduce competing actions and noise.
-  - A second key decision was to reframe Screen 2 around readability and grouping, not raw data density, so the verification information reads as one clear verdict on mobile.
+  - This drove the landing page redesign, improved hierarchy, and the decision to remove competing actions.
+  - A second key decision was to fix the weak grouping on the restaurant detail screen so the phone user can read verification data as one clear verdict rather than as a confusing table.
 
 ## Before-and-after comparison
 
 ### Before
-- The original version felt more like a generic restaurant list app than a value-first decision tool.
-- The landing screen did not clearly signal the primary capability, and there was too much clutter competing for attention.
-- The navigation was weak, which made the app feel less focused and less trustworthy.
+- The original landing screen did not establish the core value quickly enough. The app felt like a generic restaurant list because the primary signal was weak and the hierarchy was unclear.
+- The original navigation also gave the app a less focused, more cluttered feel.
+- The detail screen was still too close to raw data presentation, which made a mobile user work harder than necessary to interpret the information.
 
 ### After
-- The revised version introduces a clear landing screen with a value-first message and a dominant verified-safe signal.
-- The app reduces clutter and gives the most important function — finding a safe restaurant — clearer priority.
-- The detail screen is reorganized around readability and scannability so phone users can understand the verdict instead of decoding a dense table.
+- The revised landing screen now signals certainty immediately, before the user reads supporting text.
+- The navigation is simpler and the hierarchy is clearer, so the user sees the value proposition before browse details.
+- The detail screen is reorganized around grouping and scannability so the user can understand safety information as one mobile-friendly verdict instead of a dense table.
 
-This is the kind of issue the course vocabulary helps name: the first version lacked hierarchy, signal strength, and a clear primary task. The revised version improves those problems by making the value proposition, navigation, and grouping more intentional.
+This revision matters because the original design had weak signal strength and competing elements: the main job of the product was not dominant enough, so the interface failed to support the user’s real decision task. A better hierarchy and clearer grouping fix that problem.
 
 ## Screenshots
 
